@@ -1,0 +1,17 @@
+<div class="row text-center">
+    <div class="col">
+        <h3>Counter</h3>
+        <h4> {{ counter }}</h4>
+        <button type="button" (click)="multiply()" class="btn btn-outline-primary m-1">Multiply</button>
+        <button type="button" (click)="divide()" class="btn btn-info m-1">Divide</button>
+    </div>
+
+    <hr>
+
+    <div class="row text-center">
+        <div class="col">
+            <app-grandsong [counter]="counter" (counterChange)="resetGrandsong($event)"></app-grandsong>
+        </div>
+    </div>
+
+</div>

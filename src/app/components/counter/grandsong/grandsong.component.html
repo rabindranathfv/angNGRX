@@ -1,0 +1,16 @@
+<div class="row text-center">
+    <div class="col">
+        <h3>Counter</h3>
+        <h4> {{ counter }}</h4>
+        <button type="button" (click)="reset()" class="btn btn-outline-primary m-1">Reset</button>
+    </div>
+
+    <hr>
+
+    <div class="row text-center">
+        <div class="col">
+            <app-song [counter]="counter" (counterChange)="counter = $event"></app-song>
+        </div>
+    </div>
+
+</div>

@@ -7,4 +7,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angNGRX';
+
+  counter: number;
+  constructor() {
+    this.counter = 10;
+  }
+
+  /**
+   * increase
+   */
+  public increase() {
+    return this.counter++;
+  }
+
+  /**
+   * decrease
+   */
+  public decrease() {
+    return this.counter--;
+  }
 }

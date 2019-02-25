@@ -1,17 +1,17 @@
-import { INCREASE, DECREASE, MULTIPLY, DIVIDE, RESET, actions } from './counter.actions';
-import { Action } from '@ngrx/store';
+import * as fromCounter from './counter.actions';
 
-export function countReducer( state: number = 10, action: actions ) {
+
+export function countReducer( state: number = 10, action: fromCounter.actions ) {
     switch ( action.type) {
-        case INCREASE:
+        case fromCounter.INCREASE:
             return state + 1;
-        case DECREASE:
+        case fromCounter.DECREASE:
             return state - 1;
-        case MULTIPLY:
+        case fromCounter.MULTIPLY:
             return state * action.payload;
-        case DIVIDE:
+        case fromCounter.DIVIDE:
             return state / action.payload;
-        case RESET:
+        case fromCounter.RESET:
             return 0;
         default:
             return state;

@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { SongComponent } from './components/counter/song/song.component';
 import { GrandsongComponent } from './components/counter/grandsong/grandsong.component';
 
+// ngrx
+import { StoreModule } from '@ngrx/store';
+import { countReducer } from './components/counter/counter.reducer';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +19,8 @@ import { GrandsongComponent } from './components/counter/grandsong/grandsong.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ counter: countReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

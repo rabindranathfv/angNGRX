@@ -5,13 +5,12 @@
         <button type="button" (click)="multiply()" class="btn btn-outline-primary m-1">Multiply</button>
         <button type="button" (click)="divide()" class="btn btn-info m-1">Divide</button>
     </div>
+</div>
 
-    <hr>
+<hr>
 
-    <div class="row text-center">
-        <div class="col">
-            <app-grandsong [counter]="counter" (counterChange)="resetGrandsong($event)"></app-grandsong>
-        </div>
+<div class="row text-center">
+    <div class="col">
+        <app-grandsong></app-grandsong>
     </div>
-
 </div>

@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../app.reducers';
+import { MultiplyAction, DivideAction } from '../counter.actions';
 
 @Component({
   selector: 'app-song',
@@ -7,31 +10,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SongComponent implements OnInit {
 
-  @Input() counter: number;
-  @Output() counterChange = new EventEmitter<number>();
-  constructor() { }
+  counter: number;
+  constructor( private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.store.select('counter')
+        .subscribe( (counter: any) => {
+          this.counter = counter;
+        });
   }
 
   /**
    * increase
    */
   public multiply( ) {
-    this.counter *= 5;
-    this.counterChange.emit(this.counter);
+    const action = new MultiplyAction(5);
+    this.store.dispatch( action );
   }
 
   /**
    * decrease
    */
   public divide( ) {
-    this.counter /= 5;
-    this.counterChange.emit(this.counter);
-  }
-
-  resetGrandsong( newCounter ) {
-    this.counter = newCounter;
-    this.counterChange.emit(this.counter);
+    const action = new DivideAction(5);
+    this.store.dispatch( action);
   }
 }

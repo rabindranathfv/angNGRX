@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Store, Action } from '@ngrx/store';
 import { IncreaseAction, DecreaseAction } from './components/counter/counter.actions';
+import { AppState } from './app.reducers';
 
-interface AppState {
-  counter: number;
-}
 
 @Component({
   selector: 'app-root',

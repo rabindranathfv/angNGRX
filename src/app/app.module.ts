@@ -8,7 +8,9 @@ import { GrandsongComponent } from './components/counter/grandsong/grandsong.com
 
 // ngrx
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { countReducer } from './components/counter/counter.reducer';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -20,7 +22,11 @@ import { countReducer } from './components/counter/counter.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter: countReducer })
+    StoreModule.forRoot({ counter: countReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

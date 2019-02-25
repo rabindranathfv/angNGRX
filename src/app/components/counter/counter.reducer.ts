@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { INCREASE, DECREASE } from './counter.actions';
 
-export function countReducer( state: number = 19, action: Action ) {
+export function countReducer( state: number = 10, action: Action ) {
     switch ( action.type) {
         case INCREASE:
             return state + 1;
